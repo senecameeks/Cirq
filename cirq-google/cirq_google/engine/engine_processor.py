@@ -19,8 +19,8 @@ from typing import Dict, List, Optional, TYPE_CHECKING, Union
 from google.protobuf import any_pb2
 
 import cirq
-from cirq_google.cloud import quantum
 from cirq_google.api import v2
+from cirq_google.cloud import quantum
 from cirq_google.devices import grid_device
 from cirq_google.engine import abstract_processor, calibration, processor_sampler, util
 
@@ -224,6 +224,9 @@ class EngineProcessor(abstract_processor.AbstractProcessor):
         """Returns the default device configuration key for the processor.
         Returns:
             Device configuration proto if present.
+
+        Raises:
+            ValueError: If the processor does not have a default device configuration key.
         """
         if not self._inner_processor().default_device_config_key:
             raise ValueError('Processor does not have a default device configuration key')

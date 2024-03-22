@@ -441,6 +441,7 @@ class GridDevice(cirq.Device):
 
         Args:
             proto: The `DeviceSpecification` proto describing a Google device.
+            device_config_key: The default device config key for a Google device.
 
         Raises:
             ValueError: If the given `DeviceSpecification` is invalid. It is invalid if:
